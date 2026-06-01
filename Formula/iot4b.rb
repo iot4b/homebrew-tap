@@ -1,8 +1,8 @@
 class Iot4b < Formula
   desc "IOT4B Device"
   homepage "https://github.com/iot4b/device-go"
-  url "https://github.com/iot4b/device-go/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "3a786247cfed09e22f11fac8b2f03da70e29efa09d84a2d193fb725f365559b8"
+  url "https://github.com/iot4b/device-go/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "8e20c73e2869e8a20c563019edf48cce1521c1ead1e27884456ac31f91a3057d"
   license "MIT"
 
   depends_on "go" => :build
@@ -11,7 +11,7 @@ class Iot4b < Formula
     ldflags = %W[
       -s
       -w
-      -X device-go/packages/buildinfo.Version=3.0.0
+      -X device-go/packages/buildinfo.Version=0.1.0
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"iot4b")
@@ -28,6 +28,6 @@ class Iot4b < Formula
   end
 
   test do
-    assert_match "iot4b version 3.0.0", shell_output("#{bin}/iot4b --version")
+    assert_match "iot4b version 0.1.0", shell_output("#{bin}/iot4b --version")
   end
 end
